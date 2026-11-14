@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#83d9f3">
+  <meta name="description" content="Fly Ritoma, collect Ricoins, and customize your wings and trails.">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Collect Ricoins">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/app-icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/app-icon.svg">
+  <title>Collect Ricoins</title>
+  <link rel="stylesheet" href="noob.css?v=3">
+  <link rel="stylesheet" href="terminal.css?v=2">
+</head>
+<body>
+  <main class="game-shell">
+    <header class="heading">
+      <p class="eyebrow">Ritoma's flying adventure</p>
+      <h1>Collect ricoins</h1>
+      <p class="intro">Help Ritoma flap through the pipes and collect Ricoins!</p>
+      <button class="install-button" id="install-app" type="button" hidden>Install game app</button>
+    </header>
+
+    <section class="customize account-panel" aria-labelledby="account-title">
+      <div class="customize-title">
+        <div>
+          <p class="eyebrow">Save across visits</p>
+          <h2 id="account-title">Game account</h2>
+        </div>
+        <span class="photo-badge" aria-hidden="true">🔐</span>
+      </div>
+      <p class="customize-copy" id="account-status">Sign in to save Ricoins, settings, and mods with this device's game account.</p>
+      <form class="account-form" id="account-form">
+        <label class="setting-field" for="account-username">
+          <span>Username</span>
+          <input id="account-username" name="username" autocomplete="username" minlength="3" maxlength="24" required>
+        </label>
+        <label class="setting-field" for="account-password">
+          <span>Password</span>
+          <input id="account-password" name="password" type="password" autocomplete="current-password" minlength="10" maxlength="128" required>
+        </label>
+        <div class="account-actions">
+          <button class="shop-buy" id="sign-in" type="button">Sign in</button>
+          <button class="shop-buy account-secondary" id="sign-up" type="button">Create account</button>
+          <button class="reset-button" id="sign-out" type="button" hidden>Sign out</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="game-card" aria-label="Flappy Friends game">
+      <div class="score-bar" aria-live="polite">
+        <div><span class="score-label">SCORE</span><strong id="score">0</strong></div>
+        <div><span class="score-label">RICOINS</span><strong id="coins">0</strong></div>
+        <div><span class="score-label">BEST</span><strong id="best">0</strong></div>
+      </div>
+      <canvas id="game" width="480" height="640" aria-label="Game area. Press Space, click, or tap to flap.">
+        Your browser does not support the canvas game.
+      </canvas>
+      <p class="hint" id="hint">Press Space, click, or tap to flap</p>
+    </section>
+
+    <section class="customize shop" aria-labelledby="shop-title">
+      <div class="customize-title">
+        <div>
+          <p class="eyebrow">Spend your Ricoins</p>
+          <h2 id="shop-title">Ritoma's shop</h2>
+        </div>
+        <span class="wallet-badge">Wallet <strong id="shop-wallet">0</strong></span>
+      </div>
+      <p class="customize-copy">Collect Ricoins in a run to save them here. Buy a power-up or a new look!</p>
+      <div class="shop-items" id="shop-items" aria-live="polite"></div>
+    </section>
+
+    <section class="customize settings" aria-labelledby="settings-title">
+      <div class="customize-title">
+        <div>
+          <p class="eyebrow">Pick your adventure</p>
+          <h2 id="settings-title">Modes &amp; skins</h2>
+        </div>
+        <span class="photo-badge" aria-hidden="true">🎨</span>
+      </div>
+      <div class="settings-grid">
+        <label class="setting-field" for="game-mode">
+          <span>Game mode</span>
+          <select id="game-mode">
+            <option value="classic">Classic</option>
+            <option value="chill">Chill</option>
+            <option value="speedy">Speedy</option>
+            <option value="horror">Horror</option>
+            <option value="fun">Fun</option>
+            <option value="extreme">Extreme</option>
+          </select>
+        </label>
+        <label class="setting-field" for="game-skin">
+          <span>World skin</span>
+          <select id="game-skin">
+            <option value="sunny">Sunny</option>
+            <option value="sunset">Sunset</option>
+            <option value="midnight">Midnight</option>
+          </select>
+        </label>
+      </div>
+      <p class="customize-copy settings-copy" id="mode-description">The balanced original challenge.</p>
+    </section>
+
+    <section class="customize game-settings" aria-labelledby="game-settings-title">
+      <div class="customize-title">
+        <div>
+          <p class="eyebrow">Personalize your flight</p>
+          <h2 id="game-settings-title">Game settings</h2>
+        </div>
+        <span class="photo-badge" aria-hidden="true">⚙️</span>
+      </div>
+      <div class="settings-grid">
+        <label class="setting-field sound-toggle" for="sound-enabled">
+          <span>Game sounds</span>
+          <span class="toggle-control"><input id="sound-enabled" type="checkbox" checked> Sound effects on</span>
+        </label>
+        <label class="setting-field" for="sound-volume">
+          <span>Sound volume <output id="sound-volume-value" for="sound-volume">45%</output></span>
+          <input id="sound-volume" type="range" min="0" max="100" value="45">
+        </label>
+      </div>
+      <p class="customize-copy settings-copy">Sound plays on your device. Your game settings are saved in this browser.</p>
+      <button class="reset-button" id="reset-settings" type="button">Reset game settings</button>
+    </section>
+
+    <section class="customize" aria-labelledby="customize-title">
+      <div class="customize-title">
+        <div>
+          <p class="eyebrow">Make it yours</p>
+          <h2 id="customize-title">Customize your game</h2>
+        </div>
+        <span class="photo-badge" aria-hidden="true">📸</span>
+      </div>
+      <p class="customize-copy">Ritoma flies with the first picture, and Ricoins use the second. Choose your own images to change them.</p>
+      <div class="upload-row">
+        <label class="upload-button" for="player-photo">
+          <span aria-hidden="true">🪽</span> Player picture
+          <input id="player-photo" type="file" accept="image/*">
+        </label>
+        <label class="upload-button coin-upload" for="coin-photo">
+          <span aria-hidden="true">🪙</span> Coin picture
+          <input id="coin-photo" type="file" accept="image/*">
+        </label>
+      </div>
+      <button class="reset-button" id="reset-photos" type="button">Use the game pictures</button>
+    </section>
+
+    <section class="customize terminal-panel" aria-labelledby="terminal-title">
+      <div class="customize-title">
+        <div>
+          <p class="eyebrow">Game tools · no system commands</p>
+          <h2 id="terminal-title">Ricoins terminal</h2>
+        </div>
+        <span class="photo-badge terminal-badge" aria-hidden="true">&gt;_</span>
+      </div>
+      <p class="customize-copy">Tune the bird and world, save or load mods, and update bundled game tools. Type <code>help</code> for commands. This is a safe game console, not an operating-system terminal.</p>
+      <a class="bix-launch-link" href="terminal.html">Open Bix PC terminal <span aria-hidden="true">→</span></a>
+      <div class="terminal-window">
+        <div class="terminal-bar"><span></span><span></span><span></span><strong>ricoins://game</strong></div>
+        <div class="terminal-output" id="terminal-output" role="log" aria-live="polite" aria-label="Terminal output"></div>
+        <form class="terminal-form" id="terminal-form" autocomplete="off">
+          <label for="terminal-input" aria-hidden="true">game $</label>
+          <input id="terminal-input" name="command" aria-label="Game terminal command" spellcheck="false" maxlength="160" placeholder="help" autocomplete="off">
+          <button type="submit" aria-label="Run command">Run</button>
+        </form>
+      </div>
+    </section>
+    <footer class="credits">
+      <p>Tip: flap with Space, click, or tap. Collect Ricoins to shop for upgrades!</p>
+      <p><strong>Made by</strong> Arjun (King and head) · Shreyan (Who said it) · Priyanshu (The bird) · Rik (The ricoins) · Copilot</p>
+    </footer>
+  </main>
+  <script src="game.js?v=4"></script>
+</body>
+</html>

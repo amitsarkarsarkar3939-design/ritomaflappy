@@ -1,0 +1,44 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.collectricoins.game'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId 'com.collectricoins.game'
+        minSdk 23
+        targetSdk 34
+        versionCode 1
+        versionName '1.0.0'
+    }
+
+    sourceSets {
+        main {
+            assets.srcDir("$buildDir/generated/web-assets")
+        }
+    }
+}
+
+dependencies {
+    implementation 'androidx.webkit:webkit:1.12.1'
+}
+
+def webAssetsDirectory = layout.buildDirectory.dir('generated/web-assets')
+
+tasks.register('syncWebAssets', Sync) {
+    from(rootProject.file('..')) {
+        include 'index.html'
+        include 'game.js'
+        include 'noob.css'
+        include 'terminal.css'
+        include 'manifest.webmanifest'
+        include 'assets/**'
+    }
+    into(webAssetsDirectory.map { it.dir('www') })
+}
+
+tasks.named('preBuild').configure {
+    dependsOn tasks.named('syncWebAssets')
+}

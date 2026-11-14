@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101510">
+  <meta name="description" content="Bix is a local terminal and package manager for your PC.">
+  <title>Bix Terminal</title>
+  <link rel="stylesheet" href="terminal.css?v=2">
+</head>
+<body class="bix-page">
+  <div class="bix-boot" id="bix-boot" aria-hidden="true">
+    <div class="boot-mark">bix<span>_</span></div>
+    <p id="boot-message">Starting your workspace...</p>
+    <div class="boot-track"><span></span></div>
+  </div>
+  <main class="bix-app">
+    <header class="bix-topbar">
+      <a class="bix-brand" href="terminal.html" aria-label="Bix home">
+        <span class="bix-logo" aria-hidden="true">b</span>
+        <span>Bix<span class="brand-terminal"> Terminal</span></span>
+      </a>
+      <div class="topbar-right">
+        <a class="game-link" href="http://127.0.0.1:8000/">Back to game</a>
+        <span class="connection"><i aria-hidden="true"></i> Local session</span>
+      </div>
+    </header>
+
+    <section class="bix-workspace" aria-label="Bix terminal workspace">
+      <aside class="bix-sidebar">
+        <div class="sidebar-section">
+          <p class="sidebar-label">WORKSPACE</p>
+          <div class="workspace-card">
+            <span class="workspace-icon" aria-hidden="true">⌂</span>
+            <span><strong>PC terminal</strong><small id="sidebar-path">Connecting...</small></span>
+            <span class="live-dot" aria-label="Connected"></span>
+          </div>
+        </div>
+        <div class="sidebar-section command-shortcuts">
+          <p class="sidebar-label">QUICK COMMANDS</p>
+          <button type="button" data-command="help"><kbd>?</kbd> Help</button>
+          <button type="button" data-command="ls"><kbd>▤</kbd> List files</button>
+          <button type="button" data-command="pwd"><kbd>⌖</kbd> Current folder</button>
+          <button type="button" data-command="bix list"><kbd>⬡</kbd> Installed packages</button>
+        </div>
+        <div class="sidebar-note">
+          <span aria-hidden="true">⬡</span>
+          <strong>Meet Bix</strong>
+          <p>Your local package manager. Try <code>bix help</code> to get started.</p>
+        </div>
+        <div class="sidebar-footer">BIX TERMINAL <span>·</span> WINDOWS READY</div>
+      </aside>
+
+      <section class="terminal-main">
+        <div class="terminal-heading">
+          <div>
+            <p class="terminal-eyebrow">YOUR LOCAL WORKSPACE</p>
+            <h1>Terminal</h1>
+          </div>
+          <div class="terminal-badges">
+            <span class="safe-badge"><i aria-hidden="true"></i> Running on this PC</span>
+            <button type="button" id="clear-terminal" class="clear-button">Clear</button>
+          </div>
+        </div>
+        <div class="terminal-window bix-window">
+          <div class="terminal-bar">
+            <span></span><span></span><span></span>
+            <strong>bix — local terminal</strong>
+          </div>
+          <div class="bix-terminal-output" id="bix-output" role="log" aria-live="polite" aria-label="Terminal output"></div>
+          <form class="terminal-form bix-command-form" id="bix-form" autocomplete="off">
+            <label for="bix-input"><span class="prompt-home">~</span><span class="prompt-dollar">$</span></label>
+            <input id="bix-input" name="command" aria-label="Terminal command" spellcheck="false" maxlength="2048" placeholder="Type a command, for example: help" autocomplete="off">
+            <button type="submit" aria-label="Run command"><span>Run</span><span aria-hidden="true">↵</span></button>
+          </form>
+          <div class="terminal-hint"><span>↑</span><span>↓</span> history <span class="hint-divider">·</span> <kbd>Enter</kbd> run</div>
+        </div>
+        <footer class="terminal-footer">
+          <span>Commands run as your Windows user.</span>
+          <span>Packages are managed separately by Bix.</span>
+        </footer>
+      </section>
+    </section>
+  </main>
+  <script src="terminal.js?v=2"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "id": "./",
+  "name": "Collect Ricoins",
+  "short_name": "Ricoins",
+  "description": "Fly Ritoma, collect Ricoins, and customize your wings and trails.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f2f8ff",
+  "theme_color": "#83d9f3",
+  "icons": [
+    {
+      "src": "assets/app-icon.svg",
+      "sizes": "192x192 512x512 any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

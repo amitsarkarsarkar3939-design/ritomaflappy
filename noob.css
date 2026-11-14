@@ -1,0 +1,487 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+
+:root {
+  color-scheme: light;
+  font-family: "Nunito", "Trebuchet MS", sans-serif;
+  color: #233858;
+  background: #f2f8ff;
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  padding: 28px 16px 36px;
+  background:
+    radial-gradient(ellipse at 12% 9%, #fff8df 0, transparent 26rem),
+    #f2f8ff;
+}
+
+button,
+label {
+  font: inherit;
+}
+
+.game-shell {
+  width: min(100%, 520px);
+  margin: 0 auto;
+}
+
+.heading {
+  margin: 0 auto 20px;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 4px;
+  color: #e58b39;
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 5px;
+  color: #263d66;
+  font-size: clamp(2rem, 9vw, 2.8rem);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  line-height: 1.08;
+}
+
+.intro {
+  margin-bottom: 0;
+  color: #64748b;
+  font-size: 0.96rem;
+}
+
+.install-button {
+  margin-top: 12px;
+  padding: 9px 16px;
+  border: 0;
+  border-radius: 999px;
+  background: #315e9d;
+  color: #fff;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.install-button:hover {
+  background: #244b80;
+}
+
+.install-button:focus-visible {
+  outline: 3px solid #91c9ff;
+  outline-offset: 3px;
+}
+
+.game-card {
+  overflow: hidden;
+  border: 5px solid #fff;
+  border-radius: 24px;
+  background: #a4e7f6;
+  box-shadow: 0 16px 40px #39547a1a, 0 3px 8px #39547a0c;
+}
+
+.score-bar {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 12px 8px 10px;
+  background: #fff;
+}
+
+.score-bar div {
+  display: grid;
+  justify-items: center;
+  gap: 0;
+}
+
+.score-label {
+  color: #8a9ab1;
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+}
+
+.score-bar strong {
+  color: #273f68;
+  font-size: 1.25rem;
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+#game {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  touch-action: manipulation;
+  cursor: pointer;
+}
+
+.hint {
+  margin: 0;
+  padding: 9px 8px 11px;
+  background: #fff;
+  color: #71819a;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.customize {
+  margin-top: 18px;
+  padding: 18px;
+  border: 1px solid #e6edf7;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 8px 24px #39547a0d;
+}
+
+.customize-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.customize-title .eyebrow {
+  margin-bottom: 1px;
+  font-size: 0.65rem;
+}
+
+h2 {
+  margin-bottom: 0;
+  color: #2b4167;
+  font-size: 1.3rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+}
+
+.photo-badge {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: 14px;
+  background: #fff3da;
+  font-size: 1.3rem;
+}
+
+.settings {
+  margin-bottom: 12px;
+}
+
+.wallet-badge {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 11px;
+  border-radius: 12px;
+  background: #fff3da;
+  color: #80602d;
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.wallet-badge strong {
+  color: #513812;
+  font-size: 1rem;
+}
+
+.shop-items {
+  display: grid;
+  gap: 9px;
+}
+
+.shop-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid #e6edf7;
+  border-radius: 14px;
+  background: #f8faff;
+}
+
+.shop-item-copy {
+  display: grid;
+  gap: 2px;
+}
+
+.shop-item-copy strong {
+  color: #354c70;
+  font-size: 0.88rem;
+}
+
+.shop-item-copy span {
+  color: #71819a;
+  font-size: 0.74rem;
+}
+
+.trail-swatch {
+  display: block;
+  width: 44px;
+  height: 7px;
+  margin-top: 5px;
+  border-radius: 999px;
+  box-shadow: 0 1px 3px #253d6326;
+}
+
+.shop-buy {
+  flex: 0 0 auto;
+  min-width: 88px;
+  min-height: 38px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 11px;
+  background: #315e9d;
+  color: #fff;
+  font-size: 0.77rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.shop-buy:hover:not(:disabled) {
+  background: #244b80;
+}
+
+.shop-buy:disabled {
+  background: #dce5f0;
+  color: #71819a;
+  cursor: default;
+}
+
+.shop-buy:focus-visible {
+  outline: 3px solid #91c9ff;
+  outline-offset: 2px;
+}
+
+.settings-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.setting-field {
+  display: grid;
+  gap: 6px;
+  color: #536783;
+  font-size: 0.75rem;
+  font-weight: 900;
+}
+
+.setting-field select,
+.setting-field input {
+  width: 100%;
+  min-height: 44px;
+  padding: 0 34px 0 12px;
+  border: 1px solid #e1e9f4;
+  border-radius: 12px;
+  background: #f8faff;
+  color: #30476a;
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.setting-field input {
+  padding-right: 12px;
+  cursor: text;
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.setting-field select:focus-visible,
+.setting-field input:focus-visible {
+  outline: 3px solid #91c9ff;
+  outline-offset: 2px;
+}
+
+.settings-copy {
+  margin: 10px 0 0;
+  font-size: 0.78rem;
+}
+
+.customize-copy {
+  margin: 8px 0 13px;
+  color: #71819a;
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+.upload-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.upload-button {
+  display: flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: 1px solid #e6edf7;
+  border-radius: 13px;
+  background: #f8faff;
+  color: #354c70;
+  font-size: 0.84rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background 140ms ease, transform 140ms ease;
+}
+
+.upload-button:hover {
+  transform: translateY(-1px);
+  background: #eef5ff;
+}
+
+.upload-button input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+.upload-button:focus-within,
+.reset-button:focus-visible {
+  outline: 3px solid #91c9ff;
+  outline-offset: 3px;
+}
+
+.reset-button {
+  display: block;
+  margin: 10px auto 0;
+  padding: 5px 8px;
+  border: 0;
+  background: transparent;
+  color: #77869c;
+  font-size: 0.76rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.reset-button:hover {
+  color: #354c70;
+}
+
+.account-panel {
+  margin-bottom: 12px;
+}
+
+.account-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.account-actions {
+  display: flex;
+  grid-column: 1 / -1;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.account-actions .shop-buy {
+  min-height: 40px;
+}
+
+.account-secondary {
+  background: #eaf1fa;
+  color: #315e9d;
+}
+
+.account-secondary:hover:not(:disabled) {
+  background: #dce8f7;
+}
+
+.game-settings .setting-field input[type="range"] {
+  min-height: 36px;
+  padding: 0;
+  accent-color: #315e9d;
+  cursor: pointer;
+}
+
+.sound-toggle {
+  align-content: start;
+}
+
+.toggle-control {
+  display: flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 9px;
+  padding: 0 12px;
+  border: 1px solid #e1e9f4;
+  border-radius: 12px;
+  background: #f8faff;
+  color: #30476a;
+  font-size: 0.82rem;
+}
+
+.toggle-control input {
+  width: 18px;
+  height: 18px;
+  accent-color: #315e9d;
+}
+
+footer {
+  padding-top: 14px;
+  color: #8a9ab1;
+  font-size: 0.77rem;
+  text-align: center;
+}
+
+.credits p {
+  margin-bottom: 5px;
+}
+
+.credits p + p {
+  color: #71819a;
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 390px) {
+  body {
+    padding: 20px 11px 28px;
+  }
+
+  .customize {
+    padding: 15px;
+  }
+
+  .account-form {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
